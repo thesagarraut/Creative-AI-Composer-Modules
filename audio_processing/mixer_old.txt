@@ -1,0 +1,22 @@
+from pydub import AudioSegment
+
+# Load instrumental
+instrumental = AudioSegment.from_wav(
+    "../outputs/instrumental/instrumental.wav"
+)
+
+# Load vocals
+vocals = AudioSegment.from_wav(
+    "../outputs/vocals/vocals_aligned.wav"
+)
+
+# Mix audio
+final_song = instrumental.overlay(vocals)
+
+# Export final song
+final_song.export(
+    "../outputs/final_songs/final_song.wav",
+    format="wav"
+)
+
+print("Final song created successfully")
